@@ -1383,7 +1383,7 @@ button = widgets.Button(description="Submit")
 button.on_click(on_button_clicked)
 display(button)
 
-!pip install streamlit
+pip install streamlit
 
 import streamlit as st
 
