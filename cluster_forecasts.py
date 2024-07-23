@@ -17,10 +17,23 @@ from statsmodels.tsa.statespace.sarimax import SARIMAX
 from sklearn.preprocessing import StandardScaler
 import warnings
 warnings.filterwarnings('ignore')
-from google.colab import drive
-drive.mount('/content/drive')
 
-df = pd.read_csv(r"/content/drive/My Drive/Colab Notebooks/Trilytics'24/sales_store_promotions.csv")
+!pip install gdown
+import gdown
+import pandas as pd
+
+# File ID from the Google Drive shareable link
+file_id = '1sk2yygfI-cYunRJ4AelViKirNbBtbnkY'
+
+# Create the download URL
+url = f'https://drive.google.com/uc?id={file_id}'
+
+# Download the file
+output = 'sales_store_promotions.csv'
+gdown.download(url, output, quiet=False)
+
+# Read the CSV file into a DataFrame
+df = pd.read_csv(output)
 
 df.head()
 
@@ -1383,6 +1396,7 @@ button = widgets.Button(description="Submit")
 button.on_click(on_button_clicked)
 display(button)
 
+!pip install streamlit
 
 import streamlit as st
 
