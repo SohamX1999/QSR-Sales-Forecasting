@@ -54,7 +54,7 @@ def main():
             # Plot the actual and forecasted sales
             plt.figure(figsize = (14, 7))
             plt.plot(combined_sales['Actual Sales'], label = 'Actual Sales')
-            plt.plot(combined_sales['Forecasted Sales'], label = 'Forecasted Sales', linestyle = '--')
+            plt.plot(combined_sales['Forecasted Sales'], label = 'Forecasted Sales')
             plt.fill_between(combined_sales.index, combined_sales['lower'], combined_sales['upper'], 
                              color = 'orange', alpha = 0.2)
             plt.title(f'Actual vs Forecasted Sales for Store {store_key}')
