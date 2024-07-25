@@ -33,11 +33,11 @@ def main():
             combined_sales.columns = ['Actual Sales', 'Forecasted Sales', 'lower', 'upper']
         
             mape = np.mean(np.abs((actual_sales - forecasted_sales['Forecast_Sales']) / actual_sales)) * 100
-            print(f"MAPE: {mape:.2f}%")
+            st.write(f"MAPE: {mape:.2f}%")
         
         
             smape = np.mean(np.abs(actual_sales - forecasted_sales['Forecast_Sales'])*2 / (actual_sales + forecasted_sales['Forecast_Sales'])) * 100
-            print(f"sMAPE: {smape:.2f}%")
+            st.write(f"sMAPE: {smape:.2f}%")
         
             # Define dates to exclude
             exclude_dates = pd.to_datetime(['2023-11-23', '2023-12-25'])
@@ -49,7 +49,7 @@ def main():
             actual_excl = combined_sales.loc[mask, 'Actual Sales']
         
             mape_excl = np.mean(np.abs((actual_excl - forecasted_sales['Forecast_Sales'][mask]) / actual_excl)) * 100
-            print(f"MAPE excluding the 2 spikes: {mape_excl:.2f}%")
+            st.write(f"MAPE excluding the 2 spikes: {mape_excl:.2f}%")
         
             # Plot the actual and forecasted sales
             plt.figure(figsize = (14, 7))
