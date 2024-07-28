@@ -16,7 +16,7 @@ with open('actual_sales.pkl', 'rb') as f:
     actual_sales_dict = pickle.load(f)
 
 def main():
-    st.title("Sales Forecasting")
+    st.title("QSR Sales Forecasting: Chicken Coop")
 
     store_key = st.selectbox("Select Store Key:", list(store_forecasts.keys()))
 
